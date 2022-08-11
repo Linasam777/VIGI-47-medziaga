@@ -1,0 +1,1 @@
+# VIGI-47-medziaga
