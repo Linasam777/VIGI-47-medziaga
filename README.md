@@ -1,1 +1,1 @@
-# VIGI-47-medziaga
+# Studentų atlikti darbai bei dėstytojo pavyzdžiai
