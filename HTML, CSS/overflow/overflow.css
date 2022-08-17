@@ -1,0 +1,21 @@
+.flexbox {
+    display: flex;
+    border: 3px solid black;
+    background-color: yellow;
+    height: 800px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flexbox>p {
+    width: 100px;
+    height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+}
+
+.flexbox :nth-child(1) {
+    border: 5px dotted green;
+    align-self: end;
+}
