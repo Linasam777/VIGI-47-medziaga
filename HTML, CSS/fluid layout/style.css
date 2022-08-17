@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: rebeccapurple;
+    display: flex;
+    justify-content: space-between;
+}
+
+header :nth-child(1) {
+    width: 70%;
+}
+
+header :nth-child(2) {
+    width: 30%;
+}
+
+img {
+    width: 50%
+}
