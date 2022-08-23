@@ -1,0 +1,17 @@
+.box {
+  background-color: red;
+  width: 300px;
+  height: 600px;
+}
+.box .chil {
+  height: 20px;
+  width: 60px;
+  background-color: red;
+  border: solid 10px green;
+}
+
+.styled {
+  background-color: Black;
+  box-shadow: 0 0 1px Black;
+  color: #fff;
+}/*# sourceMappingURL=style.css.map */

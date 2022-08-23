@@ -1,0 +1,14 @@
+$favorite-color: blue;
+
+.container {
+    border: 3px solid $favorite-color;
+    background-color: yellow;
+}
+
+
+.box {
+    background-color: $favorite-color;
+    width: 100px;
+    height: 500px;
+    margin: 30px;
+}
