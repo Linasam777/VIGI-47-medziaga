@@ -25,9 +25,20 @@ const recycleBin = [false, 15, "readme.txt", -5]; // masyvai gali talpinti ivair
 console.log(productPrice1 + productPrice2); // spausdinimui
 
 
+/*
+Kodas vykdomas sinchroniskai - kol praeita operacija nebaigta, kitos nebus. Pavyzdziui: kol neivedeme teksto ir prompt nebaige veiklos, tol neatvaizduojamos kintamuju reiksmes HTML. 
+
+* buna isimciu - pazengusiems ASYNC (asinchroniskas kodas)
+*/
 
 
 const userDevice = 'iPhone/iOS';
+const userEmail = prompt("Enter your email");
+const userLocale = navigator.language;
+const currentDate = new Date();
 
-// Pazengusiems/motyvacijai
 document.getElementById("user-device").innerText = userDevice;
+document.getElementById("user-email").innerText = userEmail;
+document.getElementById("user-locale").innerText = userLocale;
+document.getElementById("current-date").innerText = currentDate;
+

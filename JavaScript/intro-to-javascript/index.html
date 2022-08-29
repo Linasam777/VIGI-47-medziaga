@@ -11,6 +11,11 @@
         .container-horizontal-border {
             border-bottom: 3px solid black;
         }
+
+        span {
+            margin-left: 20px;
+            font-weight: 600;
+        }
     </style>
 </head>
 
@@ -19,10 +24,37 @@
     <div class="container-horizontal-border" style="margin-top: 50px"></div>
 
     <h2>Pavyzdys javascriptIntro.js</h2>
-    <p id="user-device"></p>
+    <p>
+        User device:
+        <span id="user-device"></span>
+    </p>
+
+    <p>
+        User email:
+        <span id="user-email"></span>
+    </p>
+
+    <p>
+        User locale:
+        <span id="user-locale"></span>
+    </p>
+    <p>
+        Current date:
+        <span id="current-date"></span>
+    </p>
+
     <div class="container-horizontal-border"></div>
 
+    <input id="user-name-input">
+    <button onclick="printName()">Save</button>
+
     <script src="javascriptIntro.js"></script>
+    <script>
+        function printName() {
+            const userNameInput = document.getElementById("user-name-input");
+            console.log(userNameInput.value);
+        }
+    </script>
 </body>
 
 </html>
