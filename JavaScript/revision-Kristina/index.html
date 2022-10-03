@@ -9,6 +9,19 @@
 </head>
 
 <body>
+    <form onsubmit="showAlert(event)">
+        <fieldset>
+            <label for="isEducated">Are you educated?</label>
+            <input type="checkbox" name="isEducated">
+        </fieldset>
+
+        <fieldset>
+            <label for="age">What is your age?</label>
+            <input type="number" name="age" min="0">
+        </fieldset>
+
+        <button>Submit</button>
+    </form>
     <script src="./revision.js"></script>
 </body>
 

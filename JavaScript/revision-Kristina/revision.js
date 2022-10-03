@@ -30,9 +30,14 @@ names.forEach((name, i) => {
   if (i % 2 === 0) console.log(name);
 });
 
-const userNumber = +prompt("labas");
+const userNumber = 5; //+prompt("labas");
 const randomNumber = Math.round(Math.random() * 1_000);
 const magicNumber = Math.ceil(randomNumber / userNumber);
 
-alert(magicNumber);
-alert(Math.pow(magicNumber, 4));
+// alert(magicNumber);
+// alert(Math.pow(magicNumber, 4));
+
+const showAlert = (event) => {
+  // event.preventDefault();
+  alert("Funkcija veikia.");
+};
