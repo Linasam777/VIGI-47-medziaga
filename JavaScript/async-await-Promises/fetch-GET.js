@@ -5,9 +5,7 @@
 // jei naudojam async, tipiskai naudojam await. Priesingu atveju, async funkcijos veikla GALI nesibaigti iki kitos operacijos.
 const doFetch = async () => {
   const getUsers = async () => {
-    // trycatch
-    // real url
-    const response = await fetch("http://localhost:3001/user");
+    const response = await fetch("http://localhost:3001/user"); // sis URL - demonstracinis, kuris veikia tik mano kompiutery. veliau nagrinesim NodeJS paskaitose
 
     const data = await response.json();
 
