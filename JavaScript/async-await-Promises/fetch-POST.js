@@ -1,14 +1,12 @@
 const getTodos = async () => {
-  const request = await fetch("https://jsonplaceholder.typicode.com/todos/1");
-  const response = await request.json();
+  const response = await fetch("https://jsonplaceholder.typicode.com/todos/1");
+  const todos = await response.json();
 
-  console.log(response);
-
-  return response;
+  return todos;
 };
 
 const createArticle = async () => {
-  const request = await fetch("https://jsonplaceholder.typicode.com/posts", {
+  const response = await fetch("https://jsonplaceholder.typicode.com/posts", {
     method: "POST",
     body: JSON.stringify({
       title: "Sveiki",
@@ -17,9 +15,9 @@ const createArticle = async () => {
     }),
   });
 
-  const response = await request.json();
+  const article = await response.json();
 
-  console.log(response);
+  console.log(article);
 };
 
 // esant modulyje, naudoti await su visais Promise (async) atvejais. dėl paprastumo palikta be await
