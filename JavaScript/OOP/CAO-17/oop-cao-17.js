@@ -7,6 +7,8 @@ class Person {
   constructor(firstName, lastName) {
     this.firstName = this.getFormattedName(firstName);
     this.lastName = this.getFormattedName(lastName);
+
+    // Pastaba: i table prideti galima ir cia.
   }
 
   getFormattedName(name) {
