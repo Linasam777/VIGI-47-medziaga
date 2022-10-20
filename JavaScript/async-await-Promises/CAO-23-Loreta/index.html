@@ -5,18 +5,26 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./styles.css" />
     <title>Document</title>
 </head>
 
 <body>
-    <table id="toDos">
-        <tr>
-            <th>Title</th>
-            <th>Completed</th>
-        </tr>
+    <header>
+        <a href="./index.html">Pradinis</a>
+        <a href="./add.html">Pridėti užduotį</a>
+    </header>
+
+    <table id="todo-list">
+        <tbody>
+            <tr>
+                <th>Title</th>
+                <th>Completed</th>
+            </tr>
+        </tbody>
     </table>
-    <script type="module" src="./modules/populateTable.js"></script>
+
+    <script type="module" src="./modules/main.js"></script>
 </body>
 
 </html>

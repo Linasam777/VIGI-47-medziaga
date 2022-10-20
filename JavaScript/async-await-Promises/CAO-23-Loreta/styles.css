@@ -1,5 +1,45 @@
-#toDos,
+body {
+    width: 70%;
+    margin: 0 auto;
+}
+
+table#todo-list,
 th,
 td {
     border: 2px solid black;
+}
+
+table#todo-list tr td:nth-child(even) {
+    text-align: center;
+}
+
+
+form>button {
+    margin-top: 5px;
+}
+
+form>fieldset {
+    margin: 10px 0;
+    width: 30%;
+    min-width: 300px;
+}
+
+
+table {
+    width: 100%;
+}
+
+header {
+    background-color: blanchedalmond;
+    display: flex;
+    margin-bottom: 30px;
+    padding: 10px 0;
+
+    justify-content: space-around;
+
+}
+
+header a {
+    color: blueviolet;
+    font-weight: 600;
 }

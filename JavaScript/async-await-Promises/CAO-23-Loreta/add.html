@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <a href="./index.html">Pradinis</a>
+        <a href="./add.html">Pridėti užduotį</a>
+    </header>
+
+
+    <form id="create-todo-form">
+        <fieldset>
+            <label for="title">Užduotis</label>
+            <input id="todo-title" name="title" placeholder="Sportuoti">
+        </fieldset>
+
+        <fieldset>
+            <!-- turetu buti isCompleted. siuo atveju rasau, del back-end suderinamumo. suvienodinimo (angl. consistency) -->
+            <label for="completed">Įvykdytas</label>
+            <input id="todo-completed" name="completed" type="checkbox">
+        </fieldset>
+
+        <button type="submit">Pridėti</button>
+    </form>
+
+    <script type="module" src="./modules/createTodo.js"></script>
+</body>
+
+</html>

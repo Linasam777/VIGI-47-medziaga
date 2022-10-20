@@ -6,19 +6,22 @@
 // inputais - brand ir model; šie paduotų su post
 // 'u informaciją į base url (formatas: objektas su dviem properties: brand ir model).
 //     Sukurkite notification - t.y. sėkmingai užpildžius formą ir gavus patvirtinimą,
-//  turi virš formos rašyti, kad duomenys sėkmingai išsaugoti; o jei blogai - išmesti errorą.
+//     turi virš formos rašyti, kad duomenys sėkmingai išsaugoti; o jei blogai - išmesti errorą.
+
 //     Sukurkite navigaciją, kad galėtumėte tarp puslapių vaikščioti ir patikrinkite
 // ar įrašyti duomenys atsivaizduoja :)
 
-const getToDos = async () => {
+const getTodos = async () => {
   try {
     const response = await fetch("https://jsonplaceholder.typicode.com/todos");
-    const toDos = await response.json();
+    const todos = await response.json();
 
-    return toDos;
+    const fakeBackendTodos = JSON.parse(localStorage.getItem("todos")) || []; // imk, kas yra localstorage. priesingu atveju - tuscias masyvas
+
+    return [...fakeBackendTodos, ...todos];
   } catch (error) {
     console.error(error);
   }
 };
 
-export { getToDos };
+export { getTodos };
