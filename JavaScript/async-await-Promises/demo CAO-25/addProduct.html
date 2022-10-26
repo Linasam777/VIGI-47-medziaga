@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #add-product-form {
+            display: flex;
+            width: 50%;
+            margin: 0 auto;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="add-product-form">
+        <input placeholder="image" id='new-product-image-input'>
+        <input placeholder="title" id='new-product-title-input'>
+        <input placeholder="price" id='new-product-price-input'>
+
+        <button type="submit">Add product</button>
+    </form>
+
+    <script type="module" src="./modules/addProduct.js"></script>
+</body>
+
+</html>
