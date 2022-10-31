@@ -4,6 +4,7 @@
 // nodemon - pastoviai paleidžia Node kodą net po išsaugojimų atnaujina.
 
 const http = require("http"); // mūsų sistemoje kreipkis į http package.
+
 /* 
  Importuok http biblioteka. Biblioteka = kodo gabaliukas su funkcionalumu
  http kintamasis dabar gali sukurti serverį, kuris aptarnaus (angl. serves) užklausas (angl. requests)
