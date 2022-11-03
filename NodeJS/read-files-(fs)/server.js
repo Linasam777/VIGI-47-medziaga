@@ -11,9 +11,9 @@ const server = http.createServer((req, res) => {
     fs.readFile(filename, (error, data) => {
       if (error) {
         res.write(`${filename} doesn't exist.`);
-        return res.end();
+      } else {
+        res.write(data);
       }
-      res.write(data);
       res.end();
     });
   };
@@ -29,16 +29,8 @@ const server = http.createServer((req, res) => {
       break;
 
     default:
-      fs.readFile("./views/index.html", (error, data) => {
-        if (error) {
-          res.writeHead(404);
-          res.write("File not found");
-        } else {
-          res.write(data);
-        }
+      getFile("./views/index.html");
 
-        res.end();
-      });
       break;
   }
 });
