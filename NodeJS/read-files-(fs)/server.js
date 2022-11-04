@@ -14,6 +14,7 @@ const server = http.createServer((req, res) => {
       } else {
         res.write(data);
       }
+
       res.end();
     });
   };
@@ -30,7 +31,6 @@ const server = http.createServer((req, res) => {
 
     default:
       getFile("./views/index.html");
-
       break;
   }
 });
