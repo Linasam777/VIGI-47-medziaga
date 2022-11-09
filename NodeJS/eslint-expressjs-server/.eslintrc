@@ -10,6 +10,10 @@
         "ecmaVersion": "latest"
     },
     "rules": {
+        "indent": [
+            "error",
+            "tab"
+        ],
         "no-console": ["error", { "allow": ["debug", "error", "warn"] }]
     }
 }

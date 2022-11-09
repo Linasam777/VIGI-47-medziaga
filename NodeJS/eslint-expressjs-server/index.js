@@ -10,16 +10,16 @@ app.use(express.json());
 app.use(cors());
 
 app.get('/', (_, res) => {
-  res.send('Sveiki!');
+	res.send('Sveiki!');
 });
 
 app.post('/', (req, res) => {
-  const age = req.body?.age || 5; // naudok req.body.age. jei neegzistuoja - naudok 5
+	const age = req.body?.age || 5; // naudok req.body.age. jei neegzistuoja - naudok 5
 
-  // jei `age` yra truthy reiksme (ne 0, ne null, ne undefined, ne '', ...)
-  // const providedAge = age ? age : 0;
+	// jei `age` yra truthy reiksme (ne 0, ne null, ne undefined, ne '', ...)
+	// const providedAge = age ? age : 0;
 
-  res.send({ ageTimesTwo: age * 2 });
+	res.send({ ageTimesTwo: age * 2 });
 });
 
 // localhost:5000/jonas-152 grąžins { userId: 'jonas-152' }
@@ -34,11 +34,11 @@ app.post('/', (req, res) => {
 // });
 
 app.get('/:userName', (req, res) => {
-  const { userName } = req.params;
-  // const userName = req.params.userName;
+	const { userName } = req.params;
+	// const userName = req.params.userName;
 
-  const user = users.find((curUser) => curUser.name.toLocaleLowerCase() === userName.toLocaleLowerCase().trim());
+	const user = users.find((curUser) => curUser.name.toLocaleLowerCase() === userName.toLocaleLowerCase().trim());
 
-  res.send(user ?? { info: 'User not found' });
+	res.send(user ?? { info: 'User not found' });
 });
 app.listen(PORT);
