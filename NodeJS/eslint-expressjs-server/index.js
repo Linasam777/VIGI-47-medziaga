@@ -32,17 +32,7 @@ app.post('/', (req, res) => {
 	res.send({ ageTimesTwo: age * 2 });
 });
 
-// localhost:5000/jonas-152 grąžins { userId: 'jonas-152' }
-// app.get("/:userId", (req, res) => {
-//   const userId = +req.params?.userId;
-
-//   if (userId <= users.length - 1 && userId >= 0) {
-//     res.send(users[userId]);
-//   }
-
-//   res.send({ info: "User not found" });
-// });
-
+// localhost:5000/jonas-152 grąžins { userName: 'jonas-152' }
 app.get('/:userName', (req, res) => {
 	const { userName } = req.params;
 	// const userName = req.params.userName;
