@@ -24,7 +24,7 @@ app.get('/date', (req, res) => {
 });
 
 app.post('/', (req, res) => {
-	const age = req.body?.age || 5; // naudok req.body.age. jei neegzistuoja - naudok 5
+	const age = req.body.age || 5; // naudok req.body.age. jei neegzistuoja - naudok 5
 
 	// jei `age` yra truthy reiksme (ne 0, ne null, ne undefined, ne '', ...)
 	// const providedAge = age ? age : 0;
