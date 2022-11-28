@@ -6,9 +6,7 @@ require("dotenv").config();
 const app = express();
 const PORT = +process.env.PORT || 5000;
 
-// uri turi buti .env
-const uri =
-  "mongodb+srv://jonas-admin:ca-testuojam@ca.lhfvfsf.mongodb.net/?retryWrites=true&w=majority";
+const uri = process.env.ENV;
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,

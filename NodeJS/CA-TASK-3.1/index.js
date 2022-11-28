@@ -16,17 +16,18 @@ app.get("/", (_, res) => {
 
 app.post("/", (req, res) => {
   const { name } = req.body;
+
+  if (!name || typeof name !== "string") {
+    res.status(400).end("Incorrect name provided.");
+    return;
+  }
+
   const isDuplicateName = names.find((curName) => curName === name);
 
-  // if (!name || typeof name !== "string") {
-  //   res.status(400).end("Incorrect name provided.");
-  //   return;
-  // }
-
-  // if (isDuplicateName) {
-  //   res.status(400).end("This name already exists.");
-  //   return;
-  // }
+  if (isDuplicateName) {
+    res.status(400).end("This name already exists.");
+    return;
+  }
 
   names.push(name);
 
