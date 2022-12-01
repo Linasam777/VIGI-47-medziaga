@@ -4,7 +4,7 @@ const express = require("express");
 require("dotenv").config();
 
 const app = express();
-const PORT = +process.env.PORT || 5000;
+const PORT = +process.env.PORT || 5004;
 const uri = process.env.URI;
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
@@ -47,11 +47,20 @@ app.post("/collections", async (req, res) => {
   }
 });
 
-app.get("/products-analysis", async (_, res) => {
+app.get("/products-analysis/:name", async (req, res) => {
+  const name = req.params.name.trim().toLocaleLowerCase();
+
   const pipeline = [
     {
       $match: {
-        /* isAvailable: false*/
+        // /^$ iPhone $/i
+        // $regex = iPhone
+        // $options = i
+
+        name: {
+          $regex: name,
+          $options: "i",
+        },
       },
     },
     {
@@ -95,7 +104,7 @@ app.get("/products-analysis", async (_, res) => {
 
     await con.close();
 
-    res.send({ prices, availableProductsCount }).end();
+    res.send({ docs, prices, availableProductsCount }).end();
   } catch (error) {
     res.status(500).send({ error }).end();
     throw Error(error);
