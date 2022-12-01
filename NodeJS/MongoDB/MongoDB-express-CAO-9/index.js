@@ -26,6 +26,7 @@ app.get("/user/:id", async (req, res) => {
   res.send(user).end();
 });
 
+// tinkamas praktikantui
 app.get("/products", async (_, res) => {
   try {
     const getProductsWithCategoryTitle = async () => {
@@ -73,7 +74,54 @@ app.get("/products", async (_, res) => {
   }
 });
 
-/* tingus budas
+// efektyviausias
+app.get("/products-with-category-title", async (_, res) => {
+  const pipeline = [
+    {
+      $lookup: {
+        from: "categories",
+        let: { searchId: { $toObjectId: "$category" } },
+
+        pipeline: [
+          {
+            $match: {
+              $expr: {
+                $eq: ["$_id", "$$searchId"],
+              },
+            },
+          },
+
+          { $project: { _id: 0, title: 1 } },
+        ],
+
+        as: "category",
+      },
+    },
+  ];
+  const productsWithCategoryTitle = [];
+
+  try {
+    const con = await client.connect();
+    const productsCollection = await con
+      .db("NodeJS-demo")
+      .collection("products");
+
+    const productsAndCategoriesCursor = productsCollection.aggregate(pipeline);
+
+    for await (const doc of productsAndCategoriesCursor) {
+      productsWithCategoryTitle.push(doc);
+    }
+
+    await con.close();
+
+    res.send(productsWithCategoryTitle).end();
+  } catch (error) {
+    res.status(500).send({ error }).end();
+    throw Error(error);
+  }
+});
+
+/* leciausias
 app.get("/products", async (req, res) => {
   try {
     const con = await client.connect();
