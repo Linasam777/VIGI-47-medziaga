@@ -107,7 +107,7 @@ app.get("/products-analysis/:name", async (req, res) => {
     res.send({ docs, prices, availableProductsCount }).end();
   } catch (error) {
     res.status(500).send({ error }).end();
-    throw Error(error);
+    return console.error(err);
   }
 });
 

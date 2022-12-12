@@ -1,3 +1,5 @@
+const fetchUsersBtn = document.getElementById("fetch-users-button");
+
 const doFetch = async (amount) => {
   const getUsers = async () => {
     const response = await fetch("https://api.github.com/users");
@@ -12,3 +14,7 @@ const doFetch = async (amount) => {
 };
 
 doFetch(5);
+
+fetchUsersBtn.addEventListener("click", async () => {
+  await doFetch(5);
+});

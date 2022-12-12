@@ -70,7 +70,7 @@ app.get("/products", async (_, res) => {
     res.send({ products }).end();
   } catch (error) {
     res.status(500).send({ error }).end();
-    throw Error(error);
+    return console.error(error);
   }
 });
 
@@ -117,7 +117,7 @@ app.get("/products-with-category-title", async (_, res) => {
     res.send(productsWithCategoryTitle).end();
   } catch (error) {
     res.status(500).send({ error }).end();
-    throw Error(error);
+    return console.error(err);
   }
 });
 
@@ -152,8 +152,7 @@ app.get("/products", async (req, res) => {
     res.send({ productsWithCategory }).end();
   } catch (error) {
     res.status(500).send({ error }).end();
-    throw Error(error);
-  }
+    return console.error(err);  }
 });
 */
 app.listen(PORT, async () => {

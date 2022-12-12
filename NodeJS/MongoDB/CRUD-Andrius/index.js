@@ -35,7 +35,7 @@ app.get("/orders", async (req, res) => {
     res.send({ data, ordersCount }).end();
   } catch (err) {
     res.status(500).send({ err }).end();
-    throw Error(err);
+    return console.error(err);
   }
 });
 
@@ -218,7 +218,7 @@ app.patch("/orders/:products", async (req, res) => {
     res.send(data).end();
   } catch (error) {
     res.send({ error }).end();
-    throw Error(error);
+    return console.error(error);
   }
 });
 
@@ -242,7 +242,7 @@ app.delete("/order/:id", async (req, res) => {
     res.send(data).end();
   } catch (error) {
     res.send({ error }).end();
-    throw Error(error);
+    return console.error(err);
   }
 });
 
