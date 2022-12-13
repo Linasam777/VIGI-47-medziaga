@@ -8,7 +8,7 @@ app.use(express.json());
 const PORT = 5_004;
 
 const MYSQL_CONFIG =
-  "mysql://doadmin:show-password@codeacademy-trial-cluster-do-user-13048067-0.b.db.ondigitalocean.com:25060/defaultdb?ssl-mode=REQUIRED";
+  "mysql://doadmin:AVNS_NUuqrkPXkO-dQBID1J8@codeacademy-trial-cluster-do-user-13048067-0.b.db.ondigitalocean.com:25060/defaultdb?ssl-mode=REQUIRED";
 
 /*{
   host: process.env.host,
@@ -32,7 +32,8 @@ app.post("/users", async (req, res) => {
     const con = await mysql.createConnection(MYSQL_CONFIG);
 
     const result = await con.execute(
-      `SELECT * FROM users WHERE firstName='${mysql.escape(firstName)}'`
+      `SELECT * FROM users WHERE firstName='${firstName}'`
+      // `SELECT * FROM users WHERE firstName='${mysql.escape(firstName)}'`
     );
     // POST localhost:5004/users body firstName: foo' OR '1=1
 
