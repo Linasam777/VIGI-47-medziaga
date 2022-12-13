@@ -7,14 +7,17 @@ app.use(express.json());
 
 const PORT = 5_004;
 
-const MYSQL_CONFIG = {
+const MYSQL_CONFIG =
+  "mysql://doadmin:show-password@codeacademy-trial-cluster-do-user-13048067-0.b.db.ondigitalocean.com:25060/defaultdb?ssl-mode=REQUIRED";
+
+/*{
   host: process.env.host,
   user: process.env.user,
   password: process.env.password,
   port: process.env.port,
   database: process.env.database,
 };
-
+*/
 app.post("/users", async (req, res) => {
   const { firstName } = req.body;
 
