@@ -8,7 +8,7 @@ app.use(express.json());
 const PORT = 5_004;
 
 const MYSQL_CONFIG =
-  "mysql://doadmin:AVNS_NUuqrkPXkO-dQBID1J8@codeacademy-trial-cluster-do-user-13048067-0.b.db.ondigitalocean.com:25060/defaultdb?ssl-mode=REQUIRED";
+  "mysql://doadmin:AVNS_NUuqrkPXkO-dQBID1J8@codeacademy-trial-cluster-do-user-13048067-0.b.db.ondigitalocean.com:25060/temp?ssl-mode=REQUIRED";
 
 /*{
   host: process.env.host,
@@ -88,13 +88,13 @@ app.post("/table", async (req, res) => {
   try {
     const con = await mysql.createConnection(MYSQL_CONFIG);
 
-    const res = await con.execute(
+    const result = await con.execute(
       `CREATE table ${name}(id int NOT NULL AUTO_INCREMENT, firstName varchar(35), PRIMARY KEY (id))`
     );
 
     await con.end();
 
-    console.log(res);
+    console.log(result);
     res.status(201).send("Table successfully created").end();
   } catch (err) {
     res.status(500).send(err).end();
