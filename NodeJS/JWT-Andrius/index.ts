@@ -1,3 +1,6 @@
+import { config } from "dotenv"; // pazengusiems: import().then()
+config();
+
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import express from "express";
@@ -9,7 +12,7 @@ const app = express();
 const PORT = 5000;
 
 app.use(bodyParser.json());
-app.use(cookieParser() as any);
+app.use(cookieParser());
 
 app.get("/home", getHome);
 app.post("/sign-in", signIn);

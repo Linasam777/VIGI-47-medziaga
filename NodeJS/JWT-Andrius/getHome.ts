@@ -1,9 +1,6 @@
-import dotenv from "dotenv";
 import jwt from "jsonwebtoken";
 
 export type TUserPayload = { userName: string; issuedAt: number };
-
-dotenv.config();
 
 const jwtSecret = process.env.jwtSecret;
 
