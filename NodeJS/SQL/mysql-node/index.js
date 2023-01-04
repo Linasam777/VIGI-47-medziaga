@@ -1,6 +1,8 @@
-const mysql = require("mysql2/promise");
-const express = require("express");
-require("dotenv").config();
+import {config } from 'dotenv'
+import mysql from 'mysql2/promise'
+import express from 'express'
+
+config()
 const app = express();
 
 app.use(express.json());
@@ -8,18 +10,12 @@ app.use(express.json());
 const PORT = 5_004;
 
 const MYSQL_CONFIG =
-  "mysql://doadmin:AVNS_NUuqrkPXkO-dQBID1J8@codeacademy-trial-cluster-do-user-13048067-0.b.db.ondigitalocean.com:25060/temp?ssl-mode=REQUIRED";
+  "mysql://doadmin:AVNS_NUuqrkPXkO-dQBID1J8@codeacademy-trial-cluster-do-user-13048067-0.b.db.ondigitalocean.com:25060/defaultdb";
 
-/*{
-  host: process.env.host,
-  user: process.env.user,
-  password: process.env.password,
-  port: process.env.port,
-  database: process.env.database,
-};
-*/
 app.post("/users", async (req, res) => {
   const { firstName } = req.body;
+
+  const fn = mysql.escape(firstName).replaceAll("'", '')
 
   if (typeof firstName !== "string" || !firstName) {
     return res
@@ -31,19 +27,19 @@ app.post("/users", async (req, res) => {
   try {
     const con = await mysql.createConnection(MYSQL_CONFIG);
 
-    const result = await con.execute(
-      `SELECT * FROM users WHERE firstName='${firstName}'`
+    const usersByFirstName = await con.execute(
+      `SELECT * FROM users WHERE firstName='${fn}'`
       // `SELECT * FROM users WHERE firstName='${mysql.escape(firstName)}'`
-    );
+    )
     // POST localhost:5004/users body firstName: foo' OR '1=1
 
     // KAS SIUNCIAMA I DUOMENU BAZE:
     // SELECT * FROM users WHERE firstName='foo' OR '1=1'
-    console.log(`SELECT * FROM users WHERE firstName='${firstName}'`);
+    console.log(`SELECT * FROM users WHERE firstName='${fn}'`);
 
     await con.end();
 
-    res.send(result[0]).end();
+    res.send(usersByFirstName[0]).end();
   } catch (err) {
     res.status(500).send(err).end(); // ir 400, ir 500 tinkamas
     return console.error(err);
@@ -146,7 +142,8 @@ app.post("/user", async (req, res) => {
   try {
     const con = await mysql.createConnection(MYSQL_CONFIG);
 
-    await con.execute(`INSERT INTO users (firstName) VALUES ('${firstName}')`);
+    await con.execute(`INSERT INTO users (firstName) VALUES ("${firstName}")`);
+    
     await con.end();
 
     res.status(201).send("User successfully created").end();

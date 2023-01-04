@@ -2,10 +2,14 @@ const fetchUsersBtn = document.getElementById("fetch-users-button");
 
 const doFetch = async (amount) => {
   const getUsers = async () => {
-    const response = await fetch("https://api.github.com/users");
-    const users = await response.json();
-
-    return users;
+    try {
+      const response = await fetch("https://FAKEapi.github.com/users");
+      const users = await response.json();
+  
+      return users;
+    } catch (error) {
+      throw Error();
+    }
   };
 
   const users = await getUsers();
