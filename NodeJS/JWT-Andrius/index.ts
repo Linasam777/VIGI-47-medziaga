@@ -1,4 +1,4 @@
-import { config } from "dotenv"; // pazengusiems: import().then()
+import { config } from "dotenv";
 config();
 
 import bodyParser from "body-parser";

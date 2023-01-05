@@ -1,3 +1,6 @@
+import dotenv from 'dotenv'
+dotenv.config()
+
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import express from "express";
