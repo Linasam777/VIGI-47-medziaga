@@ -17,7 +17,7 @@ const showAdditionStatus = (isSuccessfullyAdded) => {
   throw Error("Could not add to-do.");
 };
 
-createTodoForm.addEventListener("submit", (event) => {
+createTodoForm.addEventListener("submit", async (event) => {
   const localStorageTodosName = "todos";
   // demonstracinis pavyzdys. kai dirbsime su Node.js, naudosim back-end (rinkos praktika)
 

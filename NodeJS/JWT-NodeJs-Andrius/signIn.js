@@ -6,6 +6,7 @@ dotenv.config();
 const jwtSecret = process.env.jwtSecret;
 
 export const signIn = (req, res) => {
+  console.log(req.headers)
   const { userName, password } = req.body;
 
   const expiresIn = 60;
@@ -36,6 +37,6 @@ export const signIn = (req, res) => {
   }); // kartais vadinama access token. ExpiresIn turetu buti .env faile
 
   res.cookie("token", token, { maxAge: expiresIn * 1_000 });
-
-  res.send("Signed in succesfuly").end();
+  
+  res.send({accessToken: token}).end();
 };
