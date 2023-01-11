@@ -10,11 +10,12 @@ const app = express();
 const PORT = 5001;
 
 // ne visus routes tikrinam pagal auth, del to .use taikykit pagal poreiki
-const isLoggedIn = (_, __, next) => {
-  const error = new Error();
+const isLoggedIn = (req, _, next) => {
+  const accessToken = req.headers.authorization;
+  const isAuthorized = accessToken; // TODO: JWT validation
 
-  if (error) {
-    return next("Unauthorized");
+  if (!isAuthorized) {
+    return next("Unauthorized"); // pateikus argumenta iseina is expresso Router (beveik tas pats kaip app)
   }
 
   return next();
