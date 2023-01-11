@@ -11,3 +11,4 @@ productPrices.unshift(-18); //prideda pirma elementa. LABAI nenasus
 productPrices.splice(1, 1); //istrina antra elementa
 
 console.info(productPrices);
+
