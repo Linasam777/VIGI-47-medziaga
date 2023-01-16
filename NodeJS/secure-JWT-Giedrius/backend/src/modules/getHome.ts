@@ -5,9 +5,12 @@ export type TUserPayload = { userName: string; issuedAt: number };
 const jwtSecret = process.env.jwtSecret;
 
 export const getHome = (req, res) => {
-console.log(req.headers.authorization.replace("Bearer ",""));
+  console.log(req.headers.authorization.replace("Bearer ", ""));
   try {
-    const payload: TUserPayload = jwt.verify(req.headers.authorization.replace("Bearer ",""), jwtSecret);
+    const payload: TUserPayload = jwt.verify(
+      req.headers.authorization.replace("Bearer ", ""),
+      jwtSecret
+    );
 
     res.send(`Welcome ${payload.userName}`).end();
   } catch (err) {
